@@ -2,10 +2,14 @@
 
 package backtype.storm.contrib.signals.test;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import backtype.storm.contrib.signals.spout.BaseSignalSpout;
+import backtype.storm.spout.SpoutOutputCollector;
+import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
 
 public class TestSignalSpout extends BaseSignalSpout {
@@ -16,6 +20,17 @@ public class TestSignalSpout extends BaseSignalSpout {
     public TestSignalSpout(String name) {
         super(name);
     }
+    
+    
+
+    @Override
+    public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
+        // TODO Auto-generated method stub
+        super.open(conf, context, collector);
+        LOG.info("Collector class: " + collector.getClass().getName());
+    }
+
+
 
     @Override
     public void onSignal(byte[] data) {

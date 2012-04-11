@@ -45,7 +45,7 @@ public class SignalClient {
      * @param args
      */
     public static void main(String[] args) throws Exception {
-        SignalClient sc = new SignalClient("localhost:2181", "test-signal-spout1");
+        SignalClient sc = new SignalClient("localhost:2181", "test-signal-spout");
         sc.start();
         try {
             sc.send("Hello Signal Spout!".getBytes());
