@@ -12,6 +12,7 @@ import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.OutputFieldsDeclarer;
 
+@SuppressWarnings("serial")
 public class TestSignalSpout extends BaseSignalSpout {
 
 
@@ -23,7 +24,8 @@ public class TestSignalSpout extends BaseSignalSpout {
     
     
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
         // TODO Auto-generated method stub
         super.open(conf, context, collector);

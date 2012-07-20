@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -20,7 +21,7 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	
+
 	<scm>
 		<connection>scm:git:git@github.com:ptgoetz/storm-signals.git</connection>
 		<developerConnection>scm:git:git@github.com:ptgoetz/storm-signals.git</developerConnection>
@@ -33,8 +34,14 @@
 			<email>ptgoetz@gmail.com</email>
 		</developer>
 	</developers>
+	<repositories>
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+	</repositories>
 	<properties>
-		<storm.version>0.7.0</storm.version>
+		<storm.version>0.7.4</storm.version>
 	</properties>
 	<dependencies>
 		<dependency>
