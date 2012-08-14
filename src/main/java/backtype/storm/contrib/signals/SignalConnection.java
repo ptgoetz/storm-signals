@@ -47,7 +47,7 @@ public class SignalConnection implements Watcher {
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static String zkHosts(Map conf) {
-        int zkPort = ((Long) conf.get("storm.zookeeper.port")).intValue();
+        int zkPort = ((Integer) conf.get("storm.zookeeper.port"));
         List<String> zkServers = (List<String>) conf.get("storm.zookeeper.servers");
 
         Iterator<String> it = zkServers.iterator();
@@ -68,7 +68,7 @@ public class SignalConnection implements Watcher {
     public void process(WatchedEvent we) {
         try {
             this.client.checkExists().usingWatcher(this).forPath(this.name);
-            LOG.debug("Renewed watch for path %s", this.name);
+            LOG.debug("Renewed watch for path {}", this.name);
         } catch (Exception ex) {
             LOG.error("Error renewing watch.", ex);
         }
