@@ -10,6 +10,8 @@ import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import backtype.storm.utils.Utils;
+
 import com.netflix.curator.framework.CuratorFramework;
 import com.netflix.curator.framework.CuratorFrameworkFactory;
 import com.netflix.curator.retry.RetryNTimes;
@@ -30,8 +32,8 @@ public class SignalConnection implements Watcher {
     @SuppressWarnings("rawtypes")
     public void init(Map conf) throws Exception {
         String connectString = zkHosts(conf);
-        int retryCount = ((Integer) conf.get("storm.zookeeper.retry.times"));
-        int retryInterval = ((Integer) conf.get("storm.zookeeper.retry.interval"));
+        int retryCount = Utils.getInt(conf.get("storm.zookeeper.retry.times"));
+        int retryInterval = Utils.getInt(conf.get("storm.zookeeper.retry.interval"));
 
         this.client = CuratorFrameworkFactory.builder().namespace(namespace).connectString(connectString)
                 .retryPolicy(new RetryNTimes(retryCount, retryInterval)).build();
@@ -47,7 +49,7 @@ public class SignalConnection implements Watcher {
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static String zkHosts(Map conf) {
-        int zkPort = ((Integer) conf.get("storm.zookeeper.port"));
+        int zkPort = Utils.getInt(conf.get("storm.zookeeper.port"));
         List<String> zkServers = (List<String>) conf.get("storm.zookeeper.servers");
 
         Iterator<String> it = zkServers.iterator();
