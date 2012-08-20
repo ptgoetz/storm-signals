@@ -40,7 +40,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<storm.version>0.7.4</storm.version>
+		<storm.version>0.8.0</storm.version>
 	</properties>
 	<dependencies>
 		<dependency>
