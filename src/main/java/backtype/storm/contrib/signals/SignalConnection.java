@@ -47,7 +47,7 @@ public class SignalConnection implements Watcher {
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static String zkHosts(Map conf) {
-        int zkPort = ((Integer) conf.get("storm.zookeeper.port"));
+        long zkPort = ((Long) conf.get("storm.zookeeper.port"));
         List<String> zkServers = (List<String>) conf.get("storm.zookeeper.servers");
 
         Iterator<String> it = zkServers.iterator();
