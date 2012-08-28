@@ -15,24 +15,19 @@ import backtype.storm.topology.OutputFieldsDeclarer;
 @SuppressWarnings("serial")
 public class TestSignalSpout extends BaseSignalSpout {
 
-
     private static final Logger LOG = LoggerFactory.getLogger(TestSignalSpout.class);
 
     public TestSignalSpout(String name) {
         super(name);
     }
-    
-    
 
     @SuppressWarnings("rawtypes")
-	@Override
+    @Override
     public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
         // TODO Auto-generated method stub
         super.open(conf, context, collector);
         LOG.info("Collector class: " + collector.getClass().getName());
     }
-
-
 
     @Override
     public void onSignal(byte[] data) {

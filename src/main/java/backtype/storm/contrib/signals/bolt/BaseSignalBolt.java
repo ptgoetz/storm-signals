@@ -7,7 +7,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import backtype.storm.contrib.signals.SignalConnection;
+import backtype.storm.contrib.signals.StormSignalConnection;
 import backtype.storm.contrib.signals.SignalListener;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -20,7 +20,7 @@ public abstract class BaseSignalBolt extends BaseRichBolt implements SignalListe
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseSignalBolt.class);
     private String name;
-    private SignalConnection signalConnection;
+    private StormSignalConnection signalConnection;
 
     public BaseSignalBolt(String name) {
         this.name = name;
@@ -30,38 +30,24 @@ public abstract class BaseSignalBolt extends BaseRichBolt implements SignalListe
     @Override
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
         try {
-        	this.signalConnection = new SignalConnection(this.name, this);
+            this.signalConnection = new StormSignalConnection(this.name, this);
             this.signalConnection.init(conf);
         } catch (Exception e) {
             LOG.error("Error SignalConnection.", e);
         }
     }
 
-	@Override
-	public void execute(Tuple input) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onSignal(byte[] data) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void cleanup() {
-		// TODO Auto-generated method stub
-		super.cleanup();
-		this.signalConnection.close();
-		
-	}
     
-    
+    public void sendSignal(String toPath, byte[] signal)throws Exception {
+        this.signalConnection.send(toPath, signal);
+    }
+
+    @Override
+    public void cleanup() {
+        // TODO Auto-generated method stub
+        super.cleanup();
+        this.signalConnection.close();
+
+    }
+
 }
