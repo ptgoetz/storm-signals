@@ -6,7 +6,7 @@ import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.netflix.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFramework;
 
 public abstract class AbstractSignalConnection implements Watcher {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractSignalConnection.class);
