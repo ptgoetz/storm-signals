@@ -4,17 +4,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.data.Stat;
+import org.apache.storm.zookeeper.WatchedEvent;
+import org.apache.storm.zookeeper.Watcher;
+import org.apache.storm.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import backtype.storm.utils.Utils;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.RetryNTimes;
+import org.apache.storm.curator.framework.CuratorFramework;
+import org.apache.storm.curator.framework.CuratorFrameworkFactory;
+import org.apache.storm.curator.retry.RetryNTimes;
 
 public class StormSignalConnection extends AbstractSignalConnection {
     private static final Logger LOG = LoggerFactory.getLogger(StormSignalConnection.class);

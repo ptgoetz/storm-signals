@@ -40,7 +40,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<storm.version>0.9.2-incubating</storm.version>
+		<storm.version>0.9.3</storm.version>
 	</properties>
 	<dependencies>
 		<dependency>
