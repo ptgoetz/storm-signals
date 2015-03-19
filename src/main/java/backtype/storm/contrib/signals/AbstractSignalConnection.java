@@ -1,12 +1,12 @@
 package backtype.storm.contrib.signals;
 
+import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.netflix.curator.framework.CuratorFramework;
 
 public abstract class AbstractSignalConnection implements Watcher {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractSignalConnection.class);

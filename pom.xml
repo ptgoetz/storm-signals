@@ -40,12 +40,22 @@
 		</repository>
 	</repositories>
 	<properties>
-		<storm.version>0.8.0</storm.version>
+		<storm.version>0.9.3</storm.version>
 	</properties>
 	<dependencies>
+	    <dependency>
+		  <groupId>org.apache.curator</groupId>
+		  <artifactId>curator-framework</artifactId>
+		  <version>2.7.1</version>
+		</dependency>
 		<dependency>
-			<groupId>storm</groupId>
-			<artifactId>storm</artifactId>
+		  <groupId>org.apache.zookeeper</groupId>
+		  <artifactId>zookeeper</artifactId>
+		  <version>3.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.storm</groupId>
+			<artifactId>storm-core</artifactId>
 			<version>${storm.version}</version>
 			<!-- keep storm out of the jar-with-dependencies -->
 			<scope>provided</scope>

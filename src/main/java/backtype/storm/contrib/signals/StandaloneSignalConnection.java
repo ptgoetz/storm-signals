@@ -1,10 +1,10 @@
 package backtype.storm.contrib.signals;
 
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.RetryNTimes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.netflix.curator.framework.CuratorFrameworkFactory;
-import com.netflix.curator.retry.RetryNTimes;
 
 public class StandaloneSignalConnection extends AbstractSignalConnection {
     private static final Logger LOG = LoggerFactory.getLogger(StandaloneSignalConnection.class);
