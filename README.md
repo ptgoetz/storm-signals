@@ -1,5 +1,5 @@
 ## Storm-Signals
-Storm-Signals aims to provide a way to send messages ("signals") to components (spouts/bolts) in a storm topology that are otherwise not addressable. 
+Storm-Signals aims to provide a way to send messages ("signals") to components (spouts/bolts) in an Apache Storm topology that are otherwise not addressable. 
 
 Storm topologies can be considered static in that modifications to a topology's behavior require redeployment. Storm-Signals provides a simple way to modify a topology's behavior at runtime, without redeployment.
 
@@ -8,8 +8,6 @@ Storm topologies can be considered static in that modifications to a topology's 
 Primary development of storm-signals will take place at: 
 https://github.com/ptgoetz/storm-signals
 
-Point/stable (non-SNAPSHOT) release souce code will be pushed to:
-https://github.com/nathanmarz/storm-contrib
 
 Maven artifacts for releases will be available on maven central.
 
@@ -23,7 +21,6 @@ Some storm users have expressed an interest in having more control over that pat
 
 Storm-Signals provides a very simple mechanism for communicating with spouts deployed within a storm topology. The communication mechanism resides outside of storm's basic stream processing paradigm (i.e. calls to `nextTuple()` and the tuple ack/fail mechanism).
 
-Signals (messages)
 
 #### Sample Use Cases
 
@@ -38,7 +35,7 @@ Signals (messages)
 ### Spout Implementation
 Currently (Version 0.1.0) provides a basic abstract `BaseRichSpout` implementation that must be subclassed:
 
-`backtype.storm.contrib.signals.spout.BaseSignalSpout`
+`org.apache.storm.contrib.signals.spout.BaseSignalSpout`
 
 Subclasses _must_ override the `onSignal()` method:
 
@@ -92,7 +89,7 @@ Point (non-SNAPSHOT) releases will be available on maven central.
 	<dependency>
 		<groupId>com.github.ptgoetz</groupId>
 		<artifactId>storm-signals</artifactId>
-		<version>0.1.0</version>
+		<version>1.0.3</version>
 	</dependency>
 
 

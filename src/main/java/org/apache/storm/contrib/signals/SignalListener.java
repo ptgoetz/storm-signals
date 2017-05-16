@@ -1,4 +1,4 @@
-package backtype.storm.contrib.signals;
+package org.apache.storm.contrib.signals;
 
 public interface SignalListener {
     void onSignal(byte[] data);

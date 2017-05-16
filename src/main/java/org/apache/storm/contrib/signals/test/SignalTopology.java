@@ -1,11 +1,11 @@
 // Copyright (c) P. Taylor Goetz (ptgoetz@gmail.com)
 
-package backtype.storm.contrib.signals.test;
+package org.apache.storm.contrib.signals.test;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.topology.TopologyBuilder;
-import backtype.storm.utils.Utils;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.utils.Utils;
 
 public class SignalTopology {
 
